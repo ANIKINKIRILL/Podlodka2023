@@ -15,6 +15,6 @@ internal fun App() {
         modifier = Modifier.fillMaxSize().background(Color.White),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = "Hello, Podlodka 2023", color = Color.Green)
+        Text(text = "Hello, Podlodka 2023", color = Color.Black)
     }
 }
