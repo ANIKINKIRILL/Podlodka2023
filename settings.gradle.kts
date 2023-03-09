@@ -16,6 +16,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "DemoAppPodlodka"
 include(":androidApp")
-include(":desktopApp")
 include(":jsApp")
 include(":shared")
