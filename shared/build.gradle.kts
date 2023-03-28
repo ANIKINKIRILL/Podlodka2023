@@ -5,10 +5,11 @@ plugins {
     id("org.jetbrains.compose")
 }
 
+version = "1.0-SNAPSHOT"
+
 kotlin {
     android()
-    iosX64()
-    iosArm64()
+    ios()
     iosSimulatorArm64()
     js(IR) {
         browser()
@@ -22,6 +23,7 @@ kotlin {
         podfile = project.file("../iosApp/Podfile")
         framework {
             baseName = "shared"
+            isStatic = true
         }
     }
     
@@ -41,24 +43,14 @@ kotlin {
             }
         }
         val androidMain by getting
-        val androidTest by getting
-        val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
-        val iosMain by creating {
-            dependsOn(commonMain)
-            iosX64Main.dependsOn(this)
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
+        val androidUnitTest by getting
+        val iosMain by getting
+        val iosSimulatorArm64Main by getting {
+            dependsOn(iosMain)
         }
-        val iosX64Test by getting
-        val iosArm64Test by getting
-        val iosSimulatorArm64Test by getting
-        val iosTest by creating {
-            dependsOn(commonTest)
-            iosX64Test.dependsOn(this)
-            iosArm64Test.dependsOn(this)
-            iosSimulatorArm64Test.dependsOn(this)
+        val iosTest by getting
+        val iosSimulatorArm64Test by getting {
+            dependsOn(iosTest)
         }
 
         val jsMain by getting
@@ -67,9 +59,14 @@ kotlin {
 
 android {
     namespace = "com.example.demoapppodlodka"
-    compileSdk = 32
+    compileSdk = 33
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdk = 29
-        targetSdk = 32
+        targetSdk = 33
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }
