@@ -6,10 +6,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Application
+import androidx.compose.ui.window.ComposeUIViewController
 import com.example.demoapppodlodka.App
 import platform.UIKit.UIViewController
 
-fun MainViewController(): UIViewController = Application("iosApp") {
+fun MainViewController(): UIViewController = ComposeUIViewController {
     SafeArea {
         App()
     }
