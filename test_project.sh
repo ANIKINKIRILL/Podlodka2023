@@ -2,6 +2,6 @@
 
 adb shell am start -n com.example.demoapppodlodka.android/com.example.demoapppodlodka.android.MainActivity
 
-./gradlew jsBrowserRun
+./gradlew jsBrowserRun &
 
-./gradlew run
+./gradlew run &
