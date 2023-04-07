@@ -17,7 +17,7 @@ fun MainViewController(): UIViewController = ComposeUIViewController {
 }
 
 @Composable
-internal fun SafeArea(
+fun SafeArea(
     content: @Composable () -> Unit
 ) {
     Column(modifier = Modifier.fillMaxSize()) {

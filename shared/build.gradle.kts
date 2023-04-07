@@ -14,6 +14,7 @@ kotlin {
     js(IR) {
         browser()
     }
+    jvm("desktop")
 
     cocoapods {
         summary = "Some description for the Shared Module"
@@ -54,6 +55,12 @@ kotlin {
         }
 
         val jsMain by getting
+
+        val desktopMain by getting {
+            dependencies {
+                implementation(compose.desktop.common)
+            }
+        }
     }
 }
 

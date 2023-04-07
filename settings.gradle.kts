@@ -18,3 +18,4 @@ rootProject.name = "DemoAppPodlodka"
 include(":androidApp")
 include(":jsApp")
 include(":shared")
+include(":desktopApp")
